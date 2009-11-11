@@ -7,6 +7,34 @@ ALL RIGHTS RESERVED
                                  OVERVIEW
 -------------------------------------------------------------------------------
 
+KPLColor is a program that takes Kernel Programming Langauge source files and
+outputs syntax highlighted HTML files for printing through a web browser.
+
+It is a Java program, but it is Java code constructed from the JFlex tool.  I
+only wrote the KPLColor.jflex file and the KPLTokens.java file--JFlex created
+the KPLColor.java program using my .jflex file.
+
+The point of this program is so that I could print out KPL source code with
+colored syntax for my cs333 Operating Systems course at Portland State
+University.  The course uses a language created by an associate professor,
+Harry Porter, at Portland State, so there is not much out there in terms of
+syntax highlighting for KPL.
+
+I'm sure more experienced students just use emacs, vim, enscript, or whatever
+for there own syntax highlighting, but I thought I would use the skills I just
+picked up from my cs321 Languages & Compiler Design course to utilize JFlex
+some more.
+
+Of course, this is not at all useful when writing KPL source code in any text
+editor--it is only for printing prettier KPL source code.
+
+When I say that this program outputs HTML files, it actually prints HTML code
+to standard out--it is up to you to redirect into a new file (see next section.)
+I didn't feel like dealing with file i/o for this--having the user redirect in
+a shell is easier.
+
+Line numbers are also included in the output.
+
 
 -------------------------------------------------------------------------------
                             INSTALLING/RUNNING
@@ -36,19 +64,19 @@ To use KPLColor from scratch, do the following:
 5. Now you can open up the HTML file in a web browser and print it.
 
 
-You could also just grab the KPLColor.class file and use that directly if you
-don't feel like doing the compiling.
+You could also just grab the .class files if you don't feel like doing the
+compiling.
 
 
 -------------------------------------------------------------------------------
-                               REPOSITORIES
+                               REPOSITORY
 -------------------------------------------------------------------------------
 
 Repository for KPLColor found here: http://github.com/tgh/KPLColor
 
 
 -------------------------------------------------------------------------------
-                                  THANKS
+                                 LICENSE
 -------------------------------------------------------------------------------
 
 KPLColor is licensed under GPLv3.  A copy of this license is included in the
@@ -56,8 +84,19 @@ COPYING file.
 
 
 -------------------------------------------------------------------------------
+                               BUG REPORTING
+-------------------------------------------------------------------------------
+
+I ran through this quickly, and didn't spend that much time testing, so there's
+probably some bugs in here.
+
+Send me an e-mail: tgh@pdx.edu.
+
+
+-------------------------------------------------------------------------------
                                   THANKS
 -------------------------------------------------------------------------------
 
 Thanks to:
+
 - Mark Jones of Portland State University (http://web.cecs.pdx.edu/~mpj/)
