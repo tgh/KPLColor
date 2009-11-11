@@ -1,5 +1,5 @@
 /*
- * Copyright © 2009 Tyler Hayes
+ * Copyright © 2009 Tyler Hayes <tgh@pdx.edu>
  * ALL RIGHTS RESERVED
  * [This program is licensed under the GPL version 3 or later.]
  * Please see the file COPYING in the source
@@ -17,9 +17,9 @@
 
 %standalone
 %public
-%class KPLColorLexer
+%class KPLColor
 %extends Object
-%implements KplTokens
+%implements KPLTokens
 %unicode
 %int
 %line

@@ -1,0 +1,63 @@
+KPLColor
+COPYRIGHT ©2009 Tyler Hayes <tgh@pdx.edu>
+ALL RIGHTS RESERVED
+
+
+-------------------------------------------------------------------------------
+                                 OVERVIEW
+-------------------------------------------------------------------------------
+
+
+-------------------------------------------------------------------------------
+                            INSTALLING/RUNNING
+-------------------------------------------------------------------------------
+
+To use KPLColor from scratch, do the following:
+
+1. install jflex in your machine (if you don't already have it)
+
+    $ sudo apt-get install jflex
+
+   in Linux, or just go to http://jflex.de/
+
+2. run jflex on KPLColor.jflex
+
+    $ jflex KPLColor.jflex
+
+3. compile the resulting KPLColor.java file along with KPLTokens.java
+
+    $ javac KPLColor.java KPLTokens.java
+
+4. run the program on a KPL source code file AND redirect it to a new file
+   (otherwise it will just print to standard out)
+
+    $ java KPLColor kplfile.c > kplfile.html
+
+5. Now you can open up the HTML file in a web browser and print it.
+
+
+You could also just grab the KPLColor.class file and use that directly if you
+don't feel like doing the compiling.
+
+
+-------------------------------------------------------------------------------
+                               REPOSITORIES
+-------------------------------------------------------------------------------
+
+Repository for KPLColor found here: http://github.com/tgh/KPLColor
+
+
+-------------------------------------------------------------------------------
+                                  THANKS
+-------------------------------------------------------------------------------
+
+KPLColor is licensed under GPLv3.  A copy of this license is included in the
+COPYING file.
+
+
+-------------------------------------------------------------------------------
+                                  THANKS
+-------------------------------------------------------------------------------
+
+Thanks to:
+- Mark Jones of Portland State University (http://web.cecs.pdx.edu/~mpj/)

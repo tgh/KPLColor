@@ -1,12 +1,12 @@
 /*
- * Copyright © 2009 Tyler Hayes
+ * Copyright © 2009 Tyler Hayes <tgh@pdx.edu>
  * ALL RIGHTS RESERVED
  * [This program is licensed under the GPL version 3 or later.]
  * Please see the file COPYING in the source
  * distribution of this software for license terms.
  */
 
-public interface KplTokens {
+public interface KPLTokens {
 
     /* END OF INPUT */
     int ENDINPUT = 0;
