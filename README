@@ -64,8 +64,8 @@ To use KPLColor from scratch, do the following:
 5. Now you can open up the HTML file in a web browser and print it.
 
 
-You could also just grab the .class files if you don't feel like doing the
-compiling.
+You could also just grab the java files if you don't feel like doing the
+lexical stuff.
 
 
 -------------------------------------------------------------------------------
@@ -94,9 +94,11 @@ Send me an e-mail: tgh@pdx.edu.
 
 
 -------------------------------------------------------------------------------
-                                  THANKS
+                                  LINKS
 -------------------------------------------------------------------------------
 
-Thanks to:
+JFlex
+http://www.jflex.de
 
-- Mark Jones of Portland State University (http://web.cecs.pdx.edu/~mpj/)
+Overview of the Kernel Programming Language
+http://web.cecs.pdx.edu/~harry/Blitz/BlitzDoc/KPLOverview.htm
