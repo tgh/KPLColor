@@ -37,8 +37,8 @@ TooManyDigits = [1-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9]+{Decimal
 IllegalNumber = [2-9][1-9][4-9][7-9][4-9][8-9][3-5][6-9][4-9][8-9]{DecimalPoint}?
 Identifier = [a-zA-Z_][a-zA-Z0-9_]*
 LineComment = "--"{InputChar}*{Newline}
-BlockComment = "/\*"(.|{Newline})*"\*/"
-Comments = {LineComment} | {BlockComment}
+// BlockComment = "/\*"(.|{Newline})*"\*/"
+// Comments = {LineComment} | {BlockComment}
 IllegalStrEscChar = "\\"[^n\\\"t\'0]
 LegalStrEscChar = "\\"[n\\\"t\'0]
 
@@ -71,6 +71,9 @@ LegalStrEscChar = "\\"[n\\\"t\'0]
 
 //lexer enters this state when a ' is encountered
 %state CHAR
+
+//lexer enters this state when /* is encountered
+%state BLOCK_COMMENT
 
 //lexer must return 0 when the end-of-file is reached of the lexer test
 %eofval{
@@ -255,6 +258,9 @@ LegalStrEscChar = "\\"[n\\\"t\'0]
     \'                  { yybegin (CHAR);
                           System.out.print("<span class=\"char\">\'"); }
 
+    "/*"                { yybegin (BLOCK_COMMENT);
+                          System.out.print("<span class=\"comment\">/*"); }
+
     {Identifier}        { System.out.print(yytext());
     					  return IDENTIFIER; }
     					  
@@ -284,7 +290,7 @@ LegalStrEscChar = "\\"[n\\\"t\'0]
     "&&"                { System.out.print("&amp&amp");
     					  return CONDITIONAL_AND; }
 
-    {Comments}          { System.out.print("<span class=\"comment\">" + yytext() + "</span>");
+    {LineComment}       { System.out.print("<span class=\"comment\">" + yytext() + "</span>");
                           System.out.print((yyline+2) + "\t"); }
 
     {Newline}           { System.out.print("\n" + (yyline+2) + "\t"); }
@@ -315,5 +321,14 @@ LegalStrEscChar = "\\"[n\\\"t\'0]
 	{IllegalStrEscChar}	{ System.out.print("<span class=\"invalid\">" + yytext() + "</span>"); }
 
 	{Newline}			{ System.out.print("<span class=\"invalid\">" + yytext() + "</span>"); }
+
+}
+
+<BLOCK_COMMENT> {
+
+    "*/"                { yybegin (YYINITIAL);
+                          System.out.print(yytext() + "</span>"); }
+
+    {Newline}           { System.out.print("</span>\n" + (yyline+2) + "\t<span class=\"comment\">"); }
 
 }
