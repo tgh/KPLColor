@@ -40,6 +40,7 @@ LineComment = "--"{InputChar}*{Newline}
 BlockComment = "/\*"(.|{Newline})*"\*/"
 Comments = {LineComment} | {BlockComment}
 IllegalStrEscChar = "\\"[^n\\\"t\'0]
+LegalStrEscChar = "\\"[n\\\"t\'0]
 
 %{
 	static {
@@ -53,6 +54,7 @@ IllegalStrEscChar = "\\"[^n\\\"t\'0]
 		System.out.println("  .keyword {color:maroon; font-weight:bold;}");
         System.out.println("  .type {color:darkorange; font-weight:bold;}");
         System.out.println("  .string {color:darkgreen}");
+        System.out.println("  .escape {color:limegreen}");
         System.out.println("  .char {color:purple; font-weight:bold;}");
 		System.out.println("  .comment {color:blue; font-style:italic;}");
 		System.out.println("  .number {color:red; font-weight:bold;}");
@@ -294,6 +296,8 @@ IllegalStrEscChar = "\\"[^n\\\"t\'0]
                           System.out.print(yytext() + "</span>");
 						  return STRING_LITERAL; }
 	
+    {LegalStrEscChar}   { System.out.print("<span class=\"escape\">" + yytext() + "</span>"); }
+
 	{IllegalStrEscChar}	{ System.out.print("<span class=\"invalid\">" + yytext() + "</span>"); }
 						  
 	{Newline}			{ System.out.print("<span class=\"invalid\">" + yytext() + "</span>"); }
