@@ -11,8 +11,8 @@ KPLColor is a program that takes Kernel Programming Langauge source files and
 outputs syntax highlighted HTML files for printing through a web browser.
 
 It is a Java program, but it is Java code constructed from the JFlex tool.  I
-only wrote the KPLColor.jflex file and the KPLTokens.java file--JFlex created
-the KPLColor.java program using my .jflex file.
+only wrote the KPLColor.jflex file--JFlex created the KPLColor.java program
+using my .jflex file.
 
 The point of this program is so that I could print out KPL source code with
 colored syntax for my cs333 Operating Systems course at Portland State
@@ -52,19 +52,19 @@ To use KPLColor from scratch, do the following:
 
     $ jflex KPLColor.jflex
 
-3. compile the resulting KPLColor.java file along with KPLTokens.java
+3. compile the resulting KPLColor.java file
 
-    $ javac KPLColor.java KPLTokens.java
+    $ javac KPLColor.java
 
 4. run the program on a KPL source code file AND redirect it to a new file
    (otherwise it will just print to standard out)
 
-    $ java KPLColor kplfile.c > kplfile.html
+    $ java KPLColor kplfile.c > kplfile.c.html
 
 5. Now you can open up the HTML file in a web browser and print it.
 
 
-You could also just grab the java files if you don't feel like doing the
+You could also just grab the java file if you don't feel like doing the
 lexical stuff.
 
 
