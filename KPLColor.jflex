@@ -60,7 +60,7 @@ LegalStrEscChar = "\\"[n\\\"t\'0]
 		System.out.println("</style>");
 		System.out.println("</head>");
 		System.out.println("<body>");
-        System.out.print("1\t");
+        System.out.print("1    ");
 	}
 %}
 
@@ -197,9 +197,25 @@ LegalStrEscChar = "\\"[n\\\"t\'0]
     "&&"                { System.out.print("&amp&amp"); }
 
     {LineComment}       { System.out.print("<span class=\"comment\">" + yytext() + "</span>");
-                          System.out.print((yyline+2) + "\t"); }
+                          System.out.print(yyline+2);
+                          if ((yyline+2) < 10)
+                              System.out.print("    ");
+                          else if ((yyline+2) < 100)
+                              System.out.print("   ");
+                          else if ((yyline+2) < 1000)
+                              System.out.print("  ");
+                          else
+                              System.out.print(" "); }
 
-    {Newline}           { System.out.print("\n" + (yyline+2) + "\t"); }
+    {Newline}           { System.out.print("\n" + (yyline+2));
+                          if ((yyline+2) < 10)
+                              System.out.print("    ");
+                          else if ((yyline+2) < 100)
+                              System.out.print("   ");
+                          else if ((yyline+2) < 1000)
+                              System.out.print("  ");
+                          else
+                              System.out.print(" "); }
 }
 
 <STRING> {
@@ -233,6 +249,15 @@ LegalStrEscChar = "\\"[n\\\"t\'0]
     "*/"                { yybegin (YYINITIAL);
                           System.out.print(yytext() + "</span>"); }
 
-    {Newline}           { System.out.print("</span>\n" + (yyline+2) + "\t<span class=\"comment\">"); }
+    {Newline}           { System.out.print("</span>\n" + (yyline+2));
+                          if ((yyline+2) < 10)
+                              System.out.print("    ");
+                          else if ((yyline+2) < 100)
+                              System.out.print("   ");
+                          else if ((yyline+2) < 1000)
+                              System.out.print("  ");
+                          else
+                              System.out.print(" ");
+                          System.out.print("<span class=\"comment\">"); }
 
 }
