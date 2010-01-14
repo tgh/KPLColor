@@ -187,14 +187,7 @@ LegalStrEscChar = "\\"[n\\\"t\'0]
 
     {HexLiteral}        { System.out.print("<span class=\"number\">" + yytext() + "</span>"); }
 
-    {DoubleLiteral}    { System.out.print("<span class=\"number\">" + yytext() + "</span>"); }
-
-    ">"                 { System.out.print("&gt"); }
-    ">="                { System.out.print("&gt="); }
-    "<"                 { System.out.print("&lt"); }
-    "<="                { System.out.print("&lt="); }
-    "&"                 { System.out.print("&amp"); }
-    "&&"                { System.out.print("&amp&amp"); }
+    {DoubleLiteral}     { System.out.print("<span class=\"number\">" + yytext() + "</span>"); }
 
     {LineComment}       { System.out.print("<span class=\"comment\">" + yytext() + "</span>");
                           System.out.print(yyline+2);
